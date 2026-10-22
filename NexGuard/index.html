@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#080e1b">
+  <meta name="description" content="NexGuard is an academic prototype for file, URL and APK security analysis.">
+  <script>window.__NEXGUARD_PAGE_START__ = performance.now();</script>
+  <title>NexGuard — Security Analysis Workspace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="ambient" aria-hidden="true"><i></i><i></i><i></i></div>
+  <a class="skip-link" href="#mainContent">Skip to content</a>
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="loader-orbit"><span class="loader-shield">N</span><i></i><i></i><i></i></div>
+    <div class="loader-title">NEXGUARD</div>
+    <div class="loader-track"><span></span></div>
+    <p>INITIALIZING WORKSPACE</p>
+  </div>
+
+  <header class="topbar">
+    <button class="icon-button menu-button" id="menuButton" aria-label="Open navigation" aria-expanded="false">☰</button>
+    <button class="brand" data-route="home" aria-label="NexGuard home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 44 48" fill="none"><path d="M22 2 40 9v13c0 11-8 19-18 24C12 41 4 33 4 22V9L22 2Z" stroke="currentColor" stroke-width="2.5"/><path d="m13 24 6 6 13-14" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      <span class="brand-copy">NEX<span>GUARD</span><small>SECURITY ANALYSIS WORKSPACE</small></span>
+    </button>
+
+    <nav class="nav" id="nav" aria-label="Main navigation">
+      <button class="nav-link active" data-route="home">Overview</button>
+      <button class="nav-link" data-route="file">File Scanner</button>
+      <button class="nav-link" data-route="url">URL Scanner</button>
+      <button class="nav-link" data-route="apk">APK Analyzer</button>
+      <button class="nav-link" data-route="history">History</button>
+    </nav>
+
+    <div class="top-actions">
+      <button class="icon-button theme-button" id="themeButton" aria-label="Switch color theme" title="Switch dark/light theme">☼</button>
+      <button class="support-top" data-route="support"><span aria-hidden="true">?</span> <span>Contact support</span></button>
+    </div>
+  </header>
+
+  <main id="mainContent">
+    <!-- OVERVIEW: only this page uses the 4K home video on desktop. -->
+    <section class="page page-home active" id="page-home" data-page="home" aria-labelledby="homeTitle">
+      <div class="home-hero">
+        
+        <div class="hero-veil"></div><div class="hero-grid"></div><div class="hero-visual" aria-hidden="true"><span class="chip chip-a"><i></i>THREAT MONITOR</span><span class="chip chip-b">STATIC ANALYSIS</span><span class="chip chip-c"><i></i>NOTHING IS RUN</span></div>
+        <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
+        <div class="home-hero-content">
+          <p class="eyebrow"><span class="live-dot"></span> STATIC ANALYSIS • SECURITY WORKSPACE</p>
+          <h1 id="homeTitle">Look closer.<br><span>Stay one step safer.</span></h1>
+          <p class="hero-copy">Review suspicious files, links and Android packages before trusting them. Clear explanations, no confusing security jargon.</p>
+          <div class="button-row">
+            <button class="btn btn-primary" data-route="file">Start file analysis <span aria-hidden="true">→</span></button>
+            <button class="btn btn-ghost" data-route="url">Check a URL</button>
+          </div>
+          <div class="hero-assurances"><span>Files are checked, never run</span><span>APKs are never installed</span><span>Results in simple words</span></div>
+        </div>
+        <div class="hero-side-label"><span class="vertical-line"></span><span>VERIFY BEFORE YOU TRUST</span></div>
+        <div class="hero-index">NG / 01</div>
+      </div>
+
+      <div class="home-content container">
+        <div class="section-title reveal">
+          <div><p class="eyebrow">CHOOSE YOUR WORKFLOW</p><h2>What would you like to inspect?</h2><p class="section-subtitle">Each tool opens on its own page. Your selected file is not uploaded by this demo.</p></div>
+          <span class="section-count">01 — 03</span>
+        </div>
+        <div class="tool-grid">
+          <article class="tool-card reveal card-file">
+            <div class="tool-card-top"><span class="tool-icon">▤</span><span class="tool-code">FILE / 01</span></div>
+            <p class="tool-label">DOCUMENTS & EXECUTABLES</p><h3>File Scanner</h3>
+            <p>Review file type, size, hash and scan evidence when the security backend is connected.</p>
+            <button class="text-link" data-route="file">Open file scanner <span>↗</span></button>
+          </article>
+          <article class="tool-card reveal card-url">
+            <div class="tool-card-top"><span class="tool-icon">↗</span><span class="tool-code">WEB / 02</span></div>
+            <p class="tool-label">LINKS & REPUTATION</p><h3>URL Scanner</h3>
+            <p>Prepare suspicious links for validation and future phishing or reputation checks.</p>
+            <button class="text-link" data-route="url">Open URL scanner <span>↗</span></button>
+          </article>
+          <article class="tool-card reveal card-apk">
+            <div class="tool-card-top"><span class="tool-icon">⬡</span><span class="tool-code">ANDROID / 03</span></div>
+            <p class="tool-label">STATIC PACKAGE REVIEW</p><h3>APK Analyzer</h3>
+            <p>Inspect Android package metadata and requested permissions without installing or running it.</p>
+            <button class="text-link" data-route="apk">Open APK analyzer <span>↗</span></button>
+          </article>
+        </div>
+
+        <div class="split-heading reveal"><div><p class="eyebrow">RECENT ACTIVITY</p><h2>Recent scans</h2></div><button class="text-link" data-route="history">View full history ↗</button></div>
+        <div class="table-shell reveal"><div class="table-scroll"><table><thead><tr><th>ITEM</th><th>TYPE</th><th>STATE</th><th>TIME</th></tr></thead><tbody id="recentTable"><tr><td colspan="4" class="empty-state">No activity yet. Start with a file or URL.</td></tr></tbody></table></div></div>
+        <div class="prototype-note"><span class="note-mark">i</span><p><strong>Prototype status:</strong> The interface is ready for testing. Real malware detection will begin only after backend scanners are integrated. No result from this demo is a safety verdict.</p></div>
+      </div>
+    </section>
+
+    <!-- FILE PAGE -->
+    <section class="page page-file" id="page-file" data-page="file" aria-labelledby="fileTitle" hidden>
+      <div class="page-banner banner-file">
+        <div class="banner-veil"></div>
+        <div class="banner-content"><p class="eyebrow">INSPECTION MODULE / 01</p><h1 id="fileTitle">File Scanner</h1><p>Inspect the file details first. Actual malware analysis requires the connected backend.</p></div><span class="banner-symbol" aria-hidden="true">▤</span>
+      </div>
+      <div class="container subpage-content">
+        <div class="workspace-grid">
+          <section class="panel primary-panel reveal" aria-labelledby="uploadHeading">
+            <div class="panel-heading"><div><p class="eyebrow">SUBMIT A FILE</p><h2 id="uploadHeading">Choose a file to inspect</h2></div><span class="step-chip">STEP 01</span></div>
+            <p class="muted-copy">Choose one supported file. Basic checks (real file type, risky extension, SHA-256 fingerprint) run on your device. Nothing is uploaded.</p>
+            <label class="drop-zone" id="fileDropZone" for="fileInput">
+              <input id="fileInput" class="visually-hidden" type="file" accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.txt,.csv,.rtf,.jpg,.jpeg,.png,.gif,.webp,.bmp,.zip,.7z,.rar,.iso,.jar,.bat,.cmd,.scr,.vbs,.ps1,.docm,.xlsm,.pptm,.tar,.gz,.apk,.exe,.msi,.dll,.mp3,.mp4,.html,.js,.py,.json,.xml">
+              <span class="upload-symbol" aria-hidden="true">↑</span><strong>Choose a file or drag it here</strong><span class="drop-help">PDF, DOCX, XLSX, JPG, PNG, ZIP, EXE, APK and more</span><span class="drop-limit">Maximum file size: <strong>700 MB</strong></span>
+            </label>
+            <div class="file-summary" id="fileSummary" hidden>
+              <div class="file-type-icon" id="fileIcon">FILE</div><div class="file-summary-main"><strong id="selectedName">No file selected</strong><span id="selectedDetails">—</span></div><button class="quiet-button" id="removeFile" type="button">Remove</button>
+            </div>
+            <div class="metadata-grid"><div class="metadata-item"><span>Detected extension</span><strong id="fileExtension">Not selected</strong></div><div class="metadata-item"><span>Selected size</span><strong id="fileSize">—</strong></div><div class="metadata-item"><span>Upload limit</span><strong>700 MB</strong></div><div class="metadata-item"><span>Execution</span><strong class="safe-value">Never</strong></div></div>
+            <button class="btn btn-primary btn-wide" id="scanFileButton" type="button">Check this file <span aria-hidden="true">→</span></button>
+            <p class="fine-print">Basic checks run locally and the file is not uploaded. A 700 MB limit must also be configured on the backend and hosting server.</p>
+          </section>
+          <aside class="panel side-panel reveal" aria-labelledby="reportPreviewTitle">
+            <div class="panel-heading"><div><p class="eyebrow">REPORT PREVIEW</p><h2 id="reportPreviewTitle">What the result will show</h2></div><span class="report-icon">↗</span></div>
+            <p class="muted-copy">When the real scanner is connected, a readable report should include:</p>
+            <div class="report-list">
+              <div class="report-row"><span class="report-number">01</span><div><strong>Verdict & risk level</strong><p>Threat detected, no known detection, scan failed or inconclusive.</p></div></div>
+              <div class="report-row"><span class="report-number">02</span><div><strong>What was detected?</strong><p>Malware family or signature only when the engine provides evidence.</p></div></div>
+              <div class="report-row"><span class="report-number">03</span><div><strong>Why it matters</strong><p>Explain suspicious behaviour and possible harm in everyday words.</p></div></div>
+              <div class="report-row"><span class="report-number">04</span><div><strong>What to do next</strong><p>Clear actions based on the finding, plus scanner name and file hash.</p></div></div>
+            </div>
+            <div class="safe-callout"><strong>Important</strong><p>“No detection found” does not prove that a file is safe.</p></div>
+          </aside>
+        </div>
+        <section class="result-panel reveal" id="fileResult" aria-live="polite" hidden></section>
+        <div class="below-help"><span>Need help understanding a report?</span><button class="text-link" data-route="support">Contact support ↗</button></div>
+      </div>
+    </section>
+
+    <!-- URL PAGE -->
+    <section class="page page-url" id="page-url" data-page="url" aria-labelledby="urlTitle" hidden>
+      <div class="page-banner banner-url"><div class="banner-veil"></div><div class="banner-content"><p class="eyebrow">WEB SAFETY MODULE / 02</p><h1 id="urlTitle">URL Scanner</h1><p>Prepare a suspicious web address for validation and reputation analysis.</p></div><span class="banner-symbol" aria-hidden="true">↗</span></div>
+      <div class="container subpage-content"><div class="workspace-grid">
+        <section class="panel primary-panel reveal"><div class="panel-heading"><div><p class="eyebrow">LINK INSPECTION</p><h2>Enter a website URL</h2></div><span class="step-chip">STEP 01</span></div><p class="muted-copy">Paste the full address. NexGuard's frontend checks the URL format only; it will not visit the site.</p><label class="field-label" for="urlInput">Website address</label><div class="url-input-wrap"><span>↗</span><input id="urlInput" class="text-input" type="url" placeholder="https://example.com" autocomplete="url" spellcheck="false"></div><button class="btn btn-primary btn-wide" id="checkUrlButton" type="button">Check this link <span>→</span></button><p class="fine-print">For a real verdict, the backend must use a safe reputation service and must not blindly fetch untrusted URLs.</p></section>
+        <aside class="panel side-panel reveal"><div class="panel-heading"><div><p class="eyebrow">WHAT WE CHECK LATER</p><h2>Link risk signals</h2></div><span class="report-icon">◎</span></div><div class="signal-list"><div><span class="signal-icon">01</span><div><strong>Domain & URL structure</strong><p>Lookalike domains, misleading characters and unusual URL patterns.</p></div></div><div><span class="signal-icon">02</span><div><strong>HTTPS & redirects</strong><p>Protocol and redirect indicators; HTTPS alone does not guarantee safety.</p></div></div><div><span class="signal-icon">03</span><div><strong>Reputation evidence</strong><p>Known phishing or malicious reputation, where a configured service has a match.</p></div></div></div><div class="safe-callout"><strong>Stay cautious</strong><p>Do not enter passwords or personal details on a link you do not trust.</p></div></aside>
+      </div><section class="result-panel reveal" id="urlResult" aria-live="polite" hidden></section><div class="below-help"><span>Found a suspicious link?</span><button class="text-link" data-route="support">Contact support ↗</button></div></div>
+    </section>
+
+    <!-- APK PAGE -->
+    <section class="page page-apk" id="page-apk" data-page="apk" aria-labelledby="apkTitle" hidden>
+      <div class="page-banner banner-apk"><div class="banner-veil"></div><div class="banner-content"><p class="eyebrow">ANDROID STATIC REVIEW / 03</p><h1 id="apkTitle">APK Analyzer</h1><p>Review the Android package without installing or executing it.</p></div><span class="banner-symbol" aria-hidden="true">⬡</span></div>
+      <div class="container subpage-content"><div class="workspace-grid">
+        <section class="panel primary-panel reveal"><div class="panel-heading"><div><p class="eyebrow">ANDROID PACKAGE</p><h2>Select an APK file</h2></div><span class="step-chip">STATIC ONLY</span></div><div class="security-warning"><span aria-hidden="true">!</span><div><strong>APKs are never installed</strong><p>The project should parse metadata and Android permissions only, inside a restricted backend process.</p></div></div><label class="drop-zone apk-drop" id="apkDropZone" for="apkInput"><input id="apkInput" class="visually-hidden" type="file" accept=".apk,application/vnd.android.package-archive"><span class="upload-symbol" aria-hidden="true">↑</span><strong>Choose an APK to inspect</strong><span id="apkSelectedName" class="drop-help">No APK selected</span><span class="drop-limit">Maximum APK size: <strong>700 MB</strong></span></label><div class="metadata-grid"><div class="metadata-item"><span>Package file</span><strong id="apkFileName">Not selected</strong></div><div class="metadata-item"><span>Selected size</span><strong id="apkSize">—</strong></div></div><button class="btn btn-primary btn-wide" id="analyzeApkButton" type="button">Check this APK <span>→</span></button><p class="fine-print">Frontend prototype only. APK parsing, SHA-256, signature checks and permission review require backend implementation.</p></section>
+        <aside class="panel side-panel reveal"><div class="panel-heading"><div><p class="eyebrow">STATIC CHECKLIST</p><h2>What will be inspected?</h2></div><span class="report-icon">◇</span></div><div class="report-list"><div class="report-row"><span class="report-number">01</span><div><strong>Package metadata</strong><p>Package name, version, file signature and SHA-256 when available.</p></div></div><div class="report-row"><span class="report-number">02</span><div><strong>Requested permissions</strong><p>SMS, contacts, microphone, camera, location and other permissions in the manifest.</p></div></div><div class="report-row"><span class="report-number">03</span><div><strong>Suspicious indicators</strong><p>Static rules and trusted scanner findings, with rule names and evidence.</p></div></div><div class="report-row"><span class="report-number">04</span><div><strong>Possible harm & action</strong><p>Explain why a finding matters and suggest safe next steps.</p></div></div></div><div class="safe-callout"><strong>Permissions need context</strong><p>A sensitive permission is a risk signal, not automatic proof of malware.</p></div></aside>
+      </div><section class="result-panel reveal" id="apkResult" aria-live="polite" hidden></section><div class="below-help"><span>Questions about APK safety?</span><button class="text-link" data-route="support">Contact support ↗</button></div></div>
+    </section>
+
+    <!-- HISTORY PAGE -->
+    <section class="page page-history" id="page-history" data-page="history" aria-labelledby="historyTitle" hidden>
+      <div class="page-banner banner-history"><div class="banner-veil"></div><div class="banner-content"><p class="eyebrow">WORKSPACE ACTIVITY / 04</p><h1 id="historyTitle">Scan History</h1><p>Review items submitted during this browser session.</p></div><span class="banner-symbol" aria-hidden="true">◷</span></div>
+      <div class="container subpage-content"><div class="history-summary"><div class="summary-tile"><span>Session entries</span><strong id="historyCount">0</strong></div><div class="summary-tile"><span>Real scans completed</span><strong>0 <small>— backend pending</small></strong></div><div class="summary-tile"><span>Stored</span><strong>This tab only</strong></div></div><section class="panel history-panel reveal"><div class="panel-heading"><div><p class="eyebrow">ACTIVITY LOG</p><h2>Recent submissions</h2></div><button class="btn btn-small btn-secondary" id="clearHistoryButton" type="button">Clear history</button></div><div class="table-scroll"><table><thead><tr><th>ITEM</th><th>TYPE</th><th>DEMO STATE</th><th>TIME</th></tr></thead><tbody id="historyTable"><tr><td colspan="4" class="empty-state">No submissions yet. Use a scanner to add a demo entry.</td></tr></tbody></table></div><p class="fine-print">History is stored in memory while this page stays open. Database persistence will be added by the backend team.</p></section><div class="below-help"><span>Need to understand a result?</span><button class="text-link" data-route="support">Contact support ↗</button></div></div>
+    </section>
+
+    <!-- CONTACT SUPPORT PAGE -->
+    <section class="page page-support" id="page-support" data-page="support" aria-labelledby="supportTitle" hidden>
+      <div class="page-banner banner-support"><div class="banner-veil"></div><div class="banner-content"><p class="eyebrow">HELP DESK / 05</p><h1 id="supportTitle">Contact Support</h1><p>Ask about the prototype, report a UI issue or get help understanding a sample report.</p></div><span class="banner-symbol" aria-hidden="true">?</span></div>
+      <div class="container subpage-content"><div class="workspace-grid support-grid"><section class="panel primary-panel reveal"><div class="panel-heading"><div><p class="eyebrow">SEND A MESSAGE</p><h2>How can we help?</h2></div><span class="step-chip">SUPPORT</span></div><form id="supportForm"><label class="field-label" for="supportName">Your name</label><input class="text-input" id="supportName" name="name" maxlength="80" autocomplete="name" required placeholder="Enter your name"><label class="field-label" for="supportEmail">Email address</label><input class="text-input" id="supportEmail" name="email" type="email" maxlength="180" autocomplete="email" required placeholder="you@example.com"><label class="field-label" for="supportTopic">What do you need help with?</label><select class="text-input" id="supportTopic" name="topic" required><option value="">Choose a topic</option><option>File scanner</option><option>URL scanner</option><option>APK static analysis</option><option>Understanding a report</option><option>Website bug or layout</option><option>Other</option></select><label class="field-label" for="supportMessage">Message</label><textarea class="text-input message-input" id="supportMessage" name="message" minlength="10" maxlength="1500" required placeholder="Describe the issue in simple words..."></textarea><button class="btn btn-primary btn-wide" type="submit">Prepare support request <span>→</span></button><p class="fine-print">Demo form: messages are not sent or stored. Connect a secure support email or API before public use.</p></form></section><aside class="panel side-panel reveal"><div class="panel-heading"><div><p class="eyebrow">QUICK GUIDANCE</p><h2>Before contacting us</h2></div><span class="report-icon">i</span></div><div class="faq-item"><strong>Does NexGuard scan files for real?</strong><p>Not yet. The current interface demonstrates the workflow; real detections require backend integration.</p></div><div class="faq-item"><strong>Can I upload an APK to execute it?</strong><p>No. The project is designed for static analysis. APKs must never be installed or executed by the website.</p></div><div class="faq-item"><strong>Why can't I see a malware family?</strong><p>A family name should appear only when a trusted engine returns a matching detection and evidence.</p></div><div class="faq-item"><strong>What about 700 MB uploads?</strong><p>The limit must be enforced by the backend and hosting layer too, with timeouts and archive-expansion protections.</p></div></aside></div><div class="below-help"><span>Back to the workspace?</span><button class="text-link" data-route="home">Return to overview ↗</button></div></div>
+    </section>
+
+    <footer class="app-footer"><span>© NexGuard · Academic security prototype</span><span>Inspect safely. Never execute unknown files.</span><span><button data-route="support" class="footer-link">Contact support</button> · <button data-route="home" class="footer-link">Back to overview</button></span></footer>
+  </main>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <noscript><div class="noscript-message">NexGuard needs JavaScript enabled to navigate between tools.</div></noscript>
+</body>
+</html>
